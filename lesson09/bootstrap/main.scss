@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+$colors: (
+    background: #eaeaea,
+    headbackgroound: #ABB2B9,
+    hovercolor: #072ac8
+);
+
+
+$desktop: 1024px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #000;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin-top: 0;
+    background-color: color(background);
+}
+
+#wrapper {
+    background-color: #fff;
+
+    @include desktop {
+        margin: auto;
+        /* m:a */
+        width: 80%;
+        /* w80% */
+        border: 1px solid #000;
+        /* bd1-solid-#002171 */
+        box-shadow: 3px 3px 3px #000;
+    }
+}
+
+header {
+    text-align: center;
+    background-color: color(headbackgroound);
+    padding: 0.5em;
+}
+
+header a {
+    text-decoration: none;
+
+}
+
+header a:link,
+header a:visited {
+    color: #000;
+}
+
+header a:hover {
+    color: color(hovercolor);
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+
+nav {
+
+    font-weight: bold;
+    padding: 0.5em;
+    text-align: center;
+    list-style-position: inside;
+}
+
+
+nav a {
+    /* This gets rid of underline in hyperlinks */
+    text-decoration: none;
+    /* txd */
+    transition: color 3s ease-out;
+}
+
+nav a:link,
+nav a:visited {
+    color: #000;
+}
+
+nav a:hover {
+    color: color(hovercolor);
+}
+
+main,
+aside {
+    padding: 0 1em;
+}
+
+footer {
+    text-align: center;
+}
+
+.photos {
+    width: 100%;
+    box-shadow: 3px 3px 3px;
+}
+
+#indexhero {
+
+    background-image: url(images/sandiego.jpeg);
+    /* bgi */
+    background-repeat: no-repeat;
+    /* bgr */
+    background-size: 100% 100%;
+    /* bgz100%100% */
+    height: 300px;
+    /* h300 */
+
+}
+
+figcaption {
+    text-align: center;
+}
